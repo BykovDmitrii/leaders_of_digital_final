@@ -15,10 +15,10 @@
 * загрузить из облака (https://drive.google.com/drive/folders/1yRWkO5yz-P5nE_Xsu2LbtTJOoz8Lwaat?usp=sharing)
 * сгенерировать заново, выполняя остальные jupyter-ноутбуки (`get_segm_distributions.ipynb`, `get_app_data.ipynb`, `get_app_embeddings.ipynb`), имея датасет `train.csv` или его часть.
 
-Кроме того, в облаке есть выходная таблица `y_pred_proba.npy` с вероятностями сегментов, предсказанными на датасете `test.csv`:
+Кроме того, в облаке есть выходная таблица `test_predict_proba.npy` с вероятностями сегментов, предсказанными на датасете `test.csv`:
 ```
 import numpy as np
-y_pred_proba = np.load('y_pred_proba.npy')
+y_pred_proba = np.load('test_predict_proba.npy')
 ```
 
 Поясненние: `y_pred_proba.shape == (N, 5)`, где N строк массива соответствуют N строкам из `test.csv`, а 5 столбцов - предсказанным вероятностям принадлежности строки к каждому из 5 сегментов. По этому массиву и массиву правильных сегментов можно вычислить ROC и ROC-AUC, т.к. он содержит вероятности.
